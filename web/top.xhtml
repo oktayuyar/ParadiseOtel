@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <div class="header_bg">
+            <div class="wrap">
+                <div class="header">
+                    <div class="logo">
+                        <a href="anasayfa.xhtml"><img src="../images/logo.png" alt=""></img></a>
+                    </div>
+                    <div class="h_right">
+                        <!--start menu -->
+                        <ul class="menu">
+                            <li><a href="anasayfa.xhtml">hotel</a></li> 
+                            <li><a href="rooms.xhtml">rooms</a></li> 
+                            <li><a href="reservation.xhtml">reservation</a></li> 
+                            <li><a href="activities.xhtml">activities</a></li> 
+                            <li><a href="contact.xhtml">contact</a></li>
+                        </ul>
+                        <ul class="menu nav navbar-nav navbar-right">
+                            <div class="nav navbar-nav navbar-right">
+                                <div class="navbar-header">
+                                    <h:outputLabel rendered="#{empty kullaniciManagedBean.k.kullaniciadi}">
+                                        <ul>
+                                            <li class="dropdown col-md-pull-2">
+                                                <a aria-expanded="true" class="dropdown-toggle" data-toggle="dropdown">Giriş Yap<span class="caret"></span></a>
+                                                <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
+                                                    <div class="col-lg-12">
+                                                        <div class="text-center"><h5><b>Giriş Yap</b></h5></div>
+                                                        <h:form id="giris">
+                                                            <div class="form-group">
+                                                                <h:inputText id="kad" value="#{kullaniciManagedBean.k.kullaniciadi}" class="form-control" a:placeholder="Kullanıcı Adı"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <h:inputSecret value="#{kullaniciManagedBean.k.sifre}" a:placeholder="Şifre" class="form-control" id="sifre" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-xs-8 col-xs-offset-2">
+                                                                    <h:commandLink action="#{kullaniciManagedBean.giris()}" id="giris" class="btn btn-danger btn-block btn-flat"><strong>Giriş</strong>
+                                                                    </h:commandLink>  
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+
+                                                                <div class="col-lg-12 col-md-offset-3">
+                                                                    <a href="uyekayit.xhtml" style="color: #000000" class="link">Uye Ol</a>
+                                                                </div>
+                                                            </div>
+                                                        </h:form>
+                                                    </div>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </h:outputLabel>
+                                    <h:form>
+                                        <h:outputLabel rendered="#{not empty kullaniciManagedBean.k.kullaniciadi}">
+                                            <ul>
+                                                <li class="dropdown col-md-pull-2">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <h:outputLabel value="#{kullaniciManagedBean.k.kullaniciadi}"/><b class="caret"></b></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li align="center" class="well">
+                                                            <div>                                    
+                                                                <c:if test="#{kullaniciManagedBean.k.cinsiyeti==1}"><img alt="User Image" class="user-image" src="../images/userB.png" /></c:if>
+                                                                <c:if test="#{kullaniciManagedBean.k.cinsiyeti==2}"><img alt="User Image" class="user-image" src="../images/userE.png" /></c:if>
+                                                                <a style="color: #000000">Change Picture</a>
+                                                            </div>
+                                                            <c:if test="#{kullaniciManagedBean.k.yetki == 2}">
+                                                                <h:commandButton value="Admin Panel"  action="admin" class="btn btn-sm btn-danger"></h:commandButton>                                                                 
+                                                                <h:commandButton value="Rezervasyon"  action="rezListeleme" class="btn btn-sm btn-danger"></h:commandButton> 
+                                                                <h:commandButton value="#{MesajManagedBean.topMesaj()} mesajın var"  action="mesaj" class="btn btn-sm btn-danger"></h:commandButton>
+                                                            </c:if>
+                                                            <h:commandLink action="#{kullaniciManagedBean.cikisyap()}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-log-out">Çıkış Yap</span></h:commandLink>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </h:outputLabel>
+                                    </h:form>
+                                </div>   
+                            </div>
+                        </ul>  
+                    </div>
+                    <div class="clear"></div>
+                    <div class="top-nav">
+                        <nav class="clearfix">
+                            <ul>
+                                <li class="active"><a href="anasayfa.xhtml">hotel</a></li> 
+                                <li><a href="rooms.xhtml">rooms</a></li> 
+                                <li><a href="reservation.xhtml">reservation</a></li> 
+                                <li><a href="activities.xhtml">activities</a></li> 
+                                <li><a href="contact.xhtml">contact</a></li>
+                            </ul>
+                            <a href="#" id="pull">Menu</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

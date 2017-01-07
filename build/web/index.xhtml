@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <f:view contentType="text/html">
+        <h:head>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'/>
+            <link type="text/css" rel="stylesheet" href="../css/JFFormStyle-1.css" />
+            <link rel="stylesheet" href="../css/fwslider.css" media="all"/>
+            <link rel="stylesheet" href="../css/jquery-ui.css" />
+            <link rel="stylesheet" href="../css/bootstrap.css" />
+            <link rel="stylesheet" href="../css/style.css" />
+            <link rel="stylesheet" href="css/datepicker.css" />
+
+            <script src="js/jquery-1.9.1.js"></script>
+            <script src="js/jquery-ui.js"></script>
+            <script src="js/bootstrap.js"></script>
+            <script src="js/bootstrap-datepicker.js" />
+            <script src="js/kntrl.js" />
+
+        </h:head>
+        <h:body>
+            <div id="wrapper">
+                <ui:include src="./top.xhtml"></ui:include>
+                <div id="page-wrapper">
+                    <div id="content" class="content">
+                        <ui:insert name="content"></ui:insert>
+                    </div>
+                </div>
+            </div>
+        </h:body>    
+
+    </f:view>
+</html>
+

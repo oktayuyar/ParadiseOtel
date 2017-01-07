@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition template="./index.xhtml">
+            <ui:define name="content">
+                <div class="main_bg">
+                    <div class="wrap">
+                        <div class="main">
+                            <h:form id="rezervasyon">
+                                <div class="contact_right">
+                                    <div class="contact-form">
+                                        <h3>Rezervasyon Bilgileri</h3>
+                                        <div>
+                                            <span><label>AD SOYAD</label></span>
+                                            <h:inputText id="adsoyad" value="#{rezervasyonManagedBean.r.adiSoyadi}" class="form-control"  a:placeholder="Ad Soyad" requiredMessage="Adınızı giriniz" ></h:inputText>
+                                        </div>
+                                        <div>
+                                            <span><label>E-MAIL</label></span>
+                                            <h:inputText value="#{rezervasyonManagedBean.r.EMail}" class="form-control" a:placeholder="E-Mail"  requiredMessage="E-Mail adresinizi giriniz"></h:inputText>
+                                        </div>
+                                        <div>
+                                            <span><label>CEP TELEFONU</label></span>
+                                            <h:inputText id="no" a:placeholder="Telefon Numaranız" a:data-inputmask='"mask": "(999) 999-9999"' a:data-mask="" value="#{rezervasyonManagedBean.r.cepTel}" class="form-control"  requiredMessage="Cep telefonunuzu giriniz" ></h:inputText>
+                                        </div>
+                                        <div>
+                                            <span><label>ADRES</label></span>
+                                            <h:inputText value="#{rezervasyonManagedBean.r.adres}" class="form-control" a:placeholder="Adres"  requiredMessage="Adresinizi giriniz" ></h:inputText>
+                                        </div>
+                                        <div class="sel_room"  style="width: 49%">
+                                            <h4>adults per room:</h4>
+                                            <h:selectOneMenu id="adultp" onchange="adultpC()" value="#{rezervasyonManagedBean.r.yetSayisi}">
+                                                <f:selectItem itemValue="0" itemLabel="0" />    
+                                                <f:selectItem itemValue="1" itemLabel="1" />    
+                                                <f:selectItem itemValue="2" itemLabel="2" />
+                                            </h:selectOneMenu>
+                                        </div>	
+                                        <div class="sel_room " style="width: 49%">
+                                            <h4>childern 0-12:</h4>
+                                            <h:selectOneMenu id="childp" onchange="childpC()"  value="#{rezervasyonManagedBean.r.CSayisi}" >
+                                                <f:selectItem itemValue="0" itemLabel="0" />    
+                                                <f:selectItem itemValue="1" itemLabel="1" />
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="sel_room" style="width: 98%">
+                                            <h4>number of rooms</h4>
+                                            <h:selectOneMenu id="room" onchange="roomC()" value="#{rezervasyonManagedBean.r.rezCinsi}">
+                                                <f:selectItem itemValue="1" itemLabel="Single room" />  
+                                                <f:selectItem itemValue="2" itemLabel="Suite room" />
+                                                <f:selectItem itemValue="3" itemLabel="Double room" /> 
+                                            </h:selectOneMenu>
+                                        </div>	
+                                        <div class="sel_room" style="width: 49%">
+                                            <h5>check-in-date:</h5>
+                                            <div class="book_date">
+                                                <div style="height:50%">		
+                                                    <h:inputText class="span2" a:placeholder="DD/MM/YY"  value="#{rezervasyonManagedBean.r.basTarihi}" id="dp1"></h:inputText>
+                                                </div>  
+                                            </div>	
+                                        </div>
+                                        <div  class="sel_room" style="width: 50%">
+                                            <h5>check-out-date:</h5>
+                                            <div class="book_date">	
+                                                <div style="height:50%">		
+                                                    <h:inputText class="span2" a:placeholder="DD/MM/YY" value="#{rezervasyonManagedBean.r.bitisTarihi}" id="dp2"></h:inputText>
+                                                </div>  
+                                            </div>		
+                                        </div>
+                                    </div>
+                                </div>	
+                                <div class="contact_left">
+                                    <div class="panel-body">
+                                        <img src="../images/pic3.jpg" style=" margin-left: 10%;" />
+                                        <img src="../images/pic2.jpg" style=" margin-left: 10%;"/>
+
+                                        <div class="sel_room"  style=" margin-top: 10%; margin-left: 30%;  width: 100%">
+                                            <h4>Ödenecek Para:</h4>
+                                            <h:inputText id="deger" value="#{rezervasyonManagedBean.fiyat}" class="btn btn-okt"></h:inputText>
+                                        </div>	
+                                    </div>	
+                                </div>
+                                <h:commandLink class="btn btn-info" style="margin-left: 27%" action="#{rezervasyonManagedBean.kontrolEtme()}" value="KAYDET"/>
+                                <div class="clear"></div>
+                            </h:form>        
+                        </div>
+                    </div>
+                </div>		
+                <!--start main -->
+                <div class="footer_bg">
+                    <div class="wrap">
+                        <div class="footer">
+                            <div class="copy">
+                                <p class="link"><span>© All rights reserved | Template by&nbsp;<a>OKTAY UYAR</a></span></p>
+                            </div>
+                            <div class="f_nav">
+                                <ul>
+                                    <li><a href="anasayfa.xhtml">home</a></li>
+                                    <li><a href="rooms.xhtml">rooms </a></li>
+                                    <li><a href="reservation.xhtml">reservation</a></li>
+                                    <li><a href="contact.xhtml">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="soc_icons">
+                                <ul>
+                                    <li><a class="icon1" href="#"></a></li>
+                                    <li><a class="icon2" href="#"></a></li>
+                                    <li><a class="icon3" href="#"></a></li>
+                                    <li><a class="icon4" href="#"></a></li>
+                                    <li><a class="icon5" href="#"></a></li>
+                                    <div class="clear"></div>
+                                </ul>	
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>	
+            </ui:define>
+        </ui:composition> 
+    </h:body>
+</html>

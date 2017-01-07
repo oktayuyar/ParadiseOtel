@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition template="./index.xhtml">
+            <ui:define name="content">
+                <div class="main_bg">
+                    <div class="wrap">
+                        <div class="main">
+                            <h:form>
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        Üye bilgilerinizi Giriniz
+                                    </div>
+                                    <div class="panel-body">
+                                        <h:panelGrid   columns="2">
+                                            Kullanıcı Adı:<h:inputText  class="form-control" id="kad" requiredMessage="Kullanıcı Adı giriniz" value="#{kullaniciDetayManagedBean.k1.kullaniciadi}"></h:inputText>
+                                            Şifre:<h:inputSecret class="form-control" value="#{kullaniciDetayManagedBean.k1.sifre}"></h:inputSecret>
+                                            Adı:<h:inputText class="form-control" id="ad" requiredMessage="Adınızı giriniz" value="#{kullaniciDetayManagedBean.k1.adi}"></h:inputText>
+                                            Soyadı:<h:inputText class="form-control" id="soyad" requiredMessage="Soyadınızı giriniz" value="#{kullaniciDetayManagedBean.k1.soyadi}"></h:inputText>
+                                            Mail:<h:inputText class="form-control" id="mail" requiredMessage="E-posta adresinizi giriniz" value="#{kullaniciDetayManagedBean.k1.email}"></h:inputText>
+                                            Cinsiyet:<h:selectOneMenu id="c" value="#{kullaniciDetayManagedBean.k1.cinsiyeti}">
+                                                <f:selectItem itemValue="1" itemLabel="Bayan" />
+                                                <f:selectItem itemValue="2" itemLabel="Bay" />                                    
+                                            </h:selectOneMenu>
+                                            Yetki:<h:selectOneMenu id="y" value="#{kullaniciDetayManagedBean.k1.yetki}">
+                                                <f:selectItem itemValue="1" itemLabel="Üye" />                                  
+                                            </h:selectOneMenu>
+                                            &nbsp;<h:commandButton class="btn btn-info" value="üye ekle" action="#{kullaniciDetayManagedBean.kullaniciEkle()}"></h:commandButton>
+                                        </h:panelGrid>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>        
+                    </div>         
+                </div>    
+                <div class="footer_bg">
+                    <div class="wrap">
+                        <div class="footer">
+                            <div class="copy">
+                                <p class="link"><span>© All rights reserved | Template by&nbsp;<a>OKTAY UYAR</a></span></p>
+                            </div>
+                            <div class="f_nav">
+                                <ul>
+                                    <li><a href="anasayfa.xhtml">home</a></li>
+                                    <li><a href="rooms.xhtml">rooms</a></li>
+                                    <li><a href="reservation.xhtml">reservation</a></li>
+                                    <li><a href="contact.xhtml">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="soc_icons">
+                                <ul>
+                                    <li><a class="icon1" href="#"></a></li>
+                                    <li><a class="icon2" href="#"></a></li>
+                                    <li><a class="icon3" href="#"></a></li>
+                                    <li><a class="icon4" href="#"></a></li>
+                                    <li><a class="icon5" href="#"></a></li>
+                                    <div class="clear"></div>
+                                </ul>	
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>  
+                </div>                
+            </ui:define>  
+        </ui:composition> 
+    </h:body>
+</html>

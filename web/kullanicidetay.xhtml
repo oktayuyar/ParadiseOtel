@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition template="./index.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="3" style="width: 100%">
+                        <h:commandButton class=" btn-primary" style="width: 100%" action="anasayfa" value="Anasayfa"></h:commandButton>
+                        <h:commandButton  class=" btn-primary" action="rezListeleme" style="width: 100%" value="Rezervasyonlar"></h:commandButton> 
+                        <h:commandButton  class=" btn-primary" action="mesaj" style="width: 100%" value="Mesajlar"></h:commandButton>
+                    </h:panelGrid> 
+                </h:form>               
+                <div class="main_bg">
+                    <div class="wrap">
+                        <div class="main">
+                            <h:form target="#{kullaniciDetayManagedBean.kullaniciGetir()}">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        Kullanıcı Bilgileri
+                                    </div>
+                                    <div class="panel-body">    
+                                        <h:panelGrid  columns="2">
+                                            Kullanıcı adı:<h:inputText class="form-control" value="#{kullaniciDetayManagedBean.k1.kullaniciadi}"></h:inputText>
+                                            Adı:<h:inputText class="form-control" value="#{kullaniciDetayManagedBean.k1.adi}"></h:inputText>
+                                            Soyadı:<h:inputText class="form-control" value="#{kullaniciDetayManagedBean.k1.soyadi}"></h:inputText>
+                                            E-mail:<h:inputText class="form-control" value="#{kullaniciDetayManagedBean.k1.email}"></h:inputText>
+                                            Cinsiyet:<h:selectOneMenu id="c" value="#{kullaniciDetayManagedBean.k1.cinsiyeti}">
+                                                <f:selectItem itemValue="1" itemLabel="Bayan" />
+                                                <f:selectItem itemValue="2" itemLabel="Bay" />                                    
+                                            </h:selectOneMenu>
+                                            Yetki:<h:selectOneMenu id="y" value="#{kullaniciDetayManagedBean.k1.yetki}">
+                                                <f:selectItem itemValue="1" itemLabel="Üye" />
+                                                <f:selectItem itemValue="2" itemLabel="Admin" />                                    
+                                            </h:selectOneMenu>
+                                        </h:panelGrid>
+                                        <h:panelGrid style="width: 30%" columns="2" >
+                                            <h:commandButton  class="btn btn-danger" action="#{kullaniciDetayManagedBean.kullaniciguncelle()}"  value="Kullanıcı Güncelle"></h:commandButton>                   
+                                            <h:commandButton class="btn btn-warning" action="#{kullaniciDetayManagedBean.kullanicisil()}" value="Kullanıcı Sil"></h:commandButton>
+                                        </h:panelGrid>
+                                    </div>
+                                </div>   
+                            </h:form>
+                        </div>
+                    </div>
+                </div>                       
+                <div class="footer_bg">
+                    <div class="wrap">
+                        <div class="footer">
+                            <div class="copy">
+                                <p class="link"><span>© All rights reserved | Template by&nbsp;<a>OKTAY UYAR</a></span></p>
+                            </div>
+                            <div class="f_nav">
+                                <ul>
+                                    <li><a href="anasayfa.xhtml">home</a></li>
+                                    <li><a href="rooms.xhtml">rooms</a></li>
+                                    <li><a href="reservation.xhtml">reservation</a></li>
+                                    <li><a href="contact.xhtml">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="soc_icons">
+                                <ul>
+                                    <li><a class="icon1" href="#"></a></li>
+                                    <li><a class="icon2" href="#"></a></li>
+                                    <li><a class="icon3" href="#"></a></li>
+                                    <li><a class="icon4" href="#"></a></li>
+                                    <li><a class="icon5" href="#"></a></li>
+                                    <div class="clear"></div>
+                                </ul>	
+                            </div>
+                        </div>
+                    </div>
+                </div>		
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
