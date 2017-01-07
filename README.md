@@ -16,5 +16,5 @@ Contact Page
 ![png](https://github.com/oktayuyar/ParadiseOtel/blob/master/images/contact.png "Contact Page")
 
 Admin Page
-![png](https://github.com/oktayuyar/ParadiseOtel/blob/master/images/contact.png "Admin Page")
+![png](https://github.com/oktayuyar/ParadiseOtel/blob/master/images/users.png "Admin Page")
 
